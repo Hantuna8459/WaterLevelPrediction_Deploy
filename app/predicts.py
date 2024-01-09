@@ -1,7 +1,6 @@
 from flask import render_template
 import pandas as pd
 import joblib
-import config
 
 def make_prediction(precipitation, sluice_status, lag):
     status_mapping = {
@@ -16,7 +15,7 @@ def make_prediction(precipitation, sluice_status, lag):
     sluice_status = status_mapping.get(sluice_status)
 
     X_new = pd.DataFrame({'precipitation': [precipitation], 'sluice_status': [sluice_status], 'lag': [lag]})
-    loaded_model = joblib.load(config.APP_ROOT + '/app/machine_learning_model/linear_regression.joblib')
+    loaded_model = joblib.load('machine_learning_model/linear_regression.joblib')
     prediction = loaded_model.predict(X_new)
 
     return prediction
@@ -28,5 +27,5 @@ def predict(request):
         lag = request.form.get('lag')
         
         prediction = make_prediction(precipitation, sluice_status, lag)
-        return render_template('index.html', prediction=prediction)
-    return render_template('index.html')
+        return render_template('predict.html', prediction=prediction)
+    return render_template('predict.html')
