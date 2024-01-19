@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import FloatField, SubmitField, SelectField, StringField
-from wtforms.validators import InputRequired, NumberRange, StopValidation
+from wtforms import SelectField, StringField
+from wtforms.validators import InputRequired, StopValidation
 import pandas as pd
 import joblib
 import config
@@ -32,8 +32,6 @@ class PredictForm(FlaskForm):
             raise StopValidation('Mực nước hồ phải là số')
 
     lag = StringField('lag', validators=[validate_lag])
-    
-    # submit = SubmitField('Dự đoán')
 
 def make_prediction(precipitation, sluice_status, lag):
     status_mapping = {

@@ -37,7 +37,7 @@
                         {% endfor %}
                     </div>
                     <div class="input-field col s4">
-                        <label for="lag">Giá trị lần ghi dữ liệu gần nhất:</label>
+                        <label for="lag">Giá trị lượng mưa ở lần đo gần nhất(m):</label>
                         <input id="lag" name="lag" class="form-control">
                         {% for error in form.errors.lag %}
                             <!--<span class="text-danger">{{ form.errors.lag }}</span>-->
@@ -47,14 +47,16 @@
                 </div>
                 <div class="row center mt-3">
                     <br><br>
-                    <button type="submit" class="btn-large">Dự đoán</button>
+                    <button type="submit" class="btn-large btn btn-primary">Dự đoán</button>
                 </div>
             </form>
             <div class="container">
                 <br><br>
                 {% if prediction %}
                 <h4 id="prediction" align="center"><b>Mực nước dự đoán: {{"%.2f"|format(prediction)}} m</b></h4>
-                <button onclick="resetPage()">Dự đoán lại</button>
+                <div class="row center mt-3">
+                    <button onclick="resetPage()" class="btn btn-outline-dark btn-sm">Dự đoán lại</button>
+                </div>
                 {% endif %}
             </div>
         </div>

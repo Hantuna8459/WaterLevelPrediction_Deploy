@@ -13,12 +13,6 @@ app.config['WTF_CSRF_ENABLED'] = False
 #     return "Hello World"
 
 @app.route('/', methods=['GET', 'POST'])
-def index():
-    form = PredictForm(request.form)
-    if form.validate_on_submit():
-        # your code here
-        pass
-    return render_template('index.html', form=form)
 
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
