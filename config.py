@@ -6,4 +6,4 @@ MODEL_PATH = os.path.join(APP_ROOT + '/machine_learning_model/linear_regression.
 
 CSRF_ENABLED = True
 
-SECRET_KEY = 'toi-khong-nho'
+SECRET_KEY = 'toi-khong-nho-afasdf?@#%$^&*()_+)'

@@ -8,6 +8,7 @@
                 <br><br>
             </div>
             <form id="form" method="post" class="col s12">
+                {{ form.csrf_token }}
                 {{form.hidden_tag()}}
                 <div class="row">
                     <div class="input-field col s4">

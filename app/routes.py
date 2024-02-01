@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request
 from app.predicts import PredictForm, make_prediction
+import config
 import logging
 
 #logging.basicConfig(filename='app.log', level=logging.INFO) #debug mode, createa a log file
 
 app = Flask(__name__)
 app.config.from_object('config')
-app.config['WTF_CSRF_ENABLED'] = False
 
 # @app.route('/') 
 # def hello_world(): 
